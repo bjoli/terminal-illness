@@ -5,7 +5,7 @@ A simple racket library to write colourful text in the linux terminal. ISC-licen
 ## Warning
 I spent more time writing this document than I did writing the library. If you are looking to write anything serious, or if you are bothered by my proper spelling of colour, please head over to the much more ambitious project [terminal-color (SIC) by hopkinsr](https://github.com/hopkinsr/terminal-color), which not only has fancy documentation, but is also cross-platform.
 
-This library was not planned in any way, and is not tested. It works for me. I use it to write colourful messages to my 
+This library was not planned in any way, and is not tested. It works for me. I use it to write colourful messages to a small LCD screen attached to my Raspberry Pi.
 
 ## Documentation
 
@@ -22,7 +22,7 @@ For the colours black, green, red, yellow, blue, magenta, cyan and white I provi
 
 (displayln-_colour_ str) same as above, but appends a newline
 
-I also define the following
+I also define the following:
 
 ### Bold
 (bold str) - prints str bold. Because of how bold works, there is no way to un-bold without resetting all other formatting.
@@ -50,5 +50,16 @@ I also define the following
 (reset) - returns a reset format sequence
 
 (display-reset) - displays a reset sequence, removing all the formatting.
+
+## Not so FAQ
+
+I haven't gotten any questions at all actually, so I'm just making them up.
+
+**Why are you using Racket? I can't install it on my RPi without X! It's bloat!**  
+I wanted to use Chicken Scheme, but I was too stupid to grok their macro system in 10 minutes.
+
+**Why didn't you just use terminal-color?**  
+Didn't know it existed, and when I found it I much preferred my way of doing/spelling it.
+
 
 
