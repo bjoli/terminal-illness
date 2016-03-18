@@ -18,22 +18,17 @@
     (displayln s)))
 
 
-
-
 ; define for use within the macros
 (define default-style (make-parameter "\e[0m"))
 
-(require (for-syntax racket/base)
-         (for-syntax racket/syntax))
+(require (for-syntax racket/base))
 (define-syntax (define-style stx)
   (syntax-case stx ()
     [(_ name definition)
-     (with-syntax ([display-definition (format-id stx "display-~a" #'name)]
-                   [displayln-definition (format-id stx "displayln-~a" #'name)])
-       #'(begin
-           (define (name str) (string-append definition str (default-style)))
-           (define (display-definition str) (display (name str)))
-           (define (displayln-definition str) (display-definition str) (newline))))]))
+     #'(define (name (str ""))
+         (cond
+           [(string=? str "") (default-style definition) definition]
+           [else (string-append definition str (default-style))]))]))
 
 ;Forground colours
 (define-style black "\e[30m")

@@ -14,15 +14,9 @@ Everything in this library is, even things that could have been regular strings,
 ### Colours
 For the colours black, green, red, yellow, blue, magenta, cyan and white I provide the following procedures:
 
-(_colour_ str) - returns a colourful string. e.g. (green "hello") returns "hello" with the escape sequence \e[32m prepended, and whatever you have set as the default style appended.
+(_colour_ \[str\]) - returns a colourful string. e.g. (green "hello") returns "hello" with the escape sequence \e[32m prepended, and whatever you have set as the default style appended. If you omit the string, it just returns the colour code, without resetting. so a (blot (green) "hello") would print hello (and any text afterwards) in green unless you set something else.
 
-(bg-_colour_ str - Same as above, but changes the background colour.
-
-(display-_colour_ str) - displays str in _colour_
-
-(displayln-_colour_ str) same as above, but appends a newline
-
-I also define the following:
+(bg-_colour_ \[str\]) - Same as above, but changes the background colour.
 
 ### Bold
 (bold str) - prints str bold. Because of how bold works, there is no way to un-bold without resetting all other formatting.
